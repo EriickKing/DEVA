@@ -1,0 +1,32 @@
+@import "./util/_base";
+@import "./util/_typo";
+@import "./util/_var";
+
+
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  outline: none;
+}
+
+.nomp {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+a,
+a:visited,
+a:link {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  &:hover{
+    text-decoration: none;
+    color: white;
+  }
+}
+

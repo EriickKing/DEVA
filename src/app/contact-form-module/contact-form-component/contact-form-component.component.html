@@ -1,0 +1,86 @@
+<section class="formmodal">
+  <form action="" class="mt-5" [formGroup]="ContactForm">
+    <h2 class="mb-3">Contact Form</h2>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="floatingName"
+        placeholder="Name"
+        (keypress)="numberOnly($event)"
+        formControlName="nameForm"
+        [ngClass]="{
+          valid: ContactForm.controls['nameForm'].valid,
+          invalid:
+            ContactForm.controls['nameForm'].invalid &&
+            (ContactForm.controls['nameForm'].dirty ||
+              ContactForm.controls['nameForm'].touched)
+        }"
+      />
+      <label for="floatingName">Name</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control"
+        id="floatinEmail"
+        placeholder="Email"
+        formControlName="emailForm"
+        [ngClass]="{
+          valid: ContactForm.controls['emailForm'].valid,
+          invalid:
+            ContactForm.controls['emailForm'].invalid &&
+            (ContactForm.controls['emailForm'].dirty ||
+              ContactForm.controls['emailForm'].touched)
+        }"
+      />
+      <label for="floatinEmail">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input
+        type="tel"
+        class="form-control"
+        id="floatingTel"
+        placeholder="Tel"
+        prefix="+52"
+        mask=" 000 000 0000"
+        formControlName="phoneForm"
+        minlength="10"
+        [ngClass]="{
+          valid: ContactForm.controls['phoneForm'].valid,
+          invalid:
+            ContactForm.controls['phoneForm'].invalid &&
+            (ContactForm.controls['phoneForm'].dirty ||
+              ContactForm.controls['phoneForm'].touched)
+        }"
+      />
+      <label for="floatingTel">Phone</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea
+        class="form-control"
+        placeholder="Message"
+        id="floatinMessage"
+        style="height: 100px"
+        maxlength="150"
+        formControlName="messageForm"
+        [ngClass]="{
+          valid: ContactForm.controls['messageForm'].valid,
+          invalid:
+            ContactForm.controls['messageForm'].invalid &&
+            (ContactForm.controls['messageForm'].dirty ||
+              ContactForm.controls['messageForm'].touched)
+        }"
+      ></textarea>
+      <label for="floatinMessage">Message</label>
+    </div>
+    <button
+      (click)="send()"
+      [ngClass]="{ disable: !ContactForm.valid }"
+      [disabled]="!ContactForm.valid"
+    >
+      Send
+    </button>
+  </form>
+</section>
+<section class="black" (click)="toggleModal()"></section>

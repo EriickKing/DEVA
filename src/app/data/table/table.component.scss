@@ -1,0 +1,27 @@
+@import "src/scss/util/_mixin";
+@import "src/scss/util/_var";
+
+.mat-cell {
+  padding: 1rem;
+}
+
+.mat-header-cell {
+  padding: 1rem;
+}
+
+h1 {
+  color: $color1;
+  font-weight: bolder
+}
+
+button {
+  @include hxw(50px, 133px);
+  background: $color2;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  transition: all .3s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
